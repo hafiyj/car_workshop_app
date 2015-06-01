@@ -69,6 +69,12 @@ background-color: #00aeef;
 }
 .navbar-brand {
   padding-top: 10px;
+  font-size: 25px;
+  font-family: myFirstFont;
+  src: url(fontawesome-webfont.woff);
+  font-weight: 800;
+  color: gray;
+
 }
 .main-nav {
   padding-top: 10px;
@@ -127,18 +133,21 @@ background-color: #00aeef;
 	margin-left: -585px;
 	text-align: center;
 	color: #fff;
+
 }
 .slider-content h2 {
   font-size: 40px;
   font-weight: 800;
   margin-bottom: 20px;
   text-transform: uppercase;
-  color: black;
+  color: white;
+
 }
 .slider-content p {
   font-size: 16px;
   font-weight: 200;
   margin-bottom: 60px;
+  
 }
 
 .slider .owl-theme .owl-controls {
