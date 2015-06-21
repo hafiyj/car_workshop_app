@@ -1,0 +1,32 @@
+<% provide(:title, 'Reservation') %>
+<h1>Reservation</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@reservation) do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :contact_number %>
+      <%= f.number_field :contact_number %>
+
+      <%= f.label :car_model %>
+      <%= f.text_field :car_model %>
+
+      <%= f.label :car_reg_number %>
+      <%= f.text_field :car_reg_number %>
+
+      <%= f.label :service_type %>
+      <%= f.text_field :service_type %>
+
+      <%= f.label :time %>
+      <%= f.time_field :time %>
+
+      <%= f.label :date %>
+      <%= f.date_field :date %>
+
+      <%= f.submit "Confirm", class: "btn btn-primary" %>
+      <%= button_tag "Reset", type: :reset, class: "btn btn-danger btn-block" %>
+    <% end %>
+  </div>
+</div>
