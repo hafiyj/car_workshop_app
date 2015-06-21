@@ -2,7 +2,7 @@ class CreateReservations < ActiveRecord::Migration
   def change
     create_table :reservations do |t|
       t.string :name
-      t.integer :contact_number
+      t.string :contact_number
       t.string :car_model
       t.string :car_reg_number
       t.string :service_type

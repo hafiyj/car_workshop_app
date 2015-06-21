@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20150602134051) do
 
   create_table "reservations", force: :cascade do |t|
     t.string   "name"
-    t.integer  "contact_number"
+    t.string   "contact_number"
     t.string   "car_model"
     t.string   "car_reg_number"
     t.string   "service_type"
