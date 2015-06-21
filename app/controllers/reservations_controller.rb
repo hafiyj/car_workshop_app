@@ -11,7 +11,7 @@ class ReservationsController < ApplicationController
 	def create
      @reservation = Reservation.new(reserve_params)    
       if @reservation.save
-      	# Handle a successful save.
+      	# Sends a message to the cust.
     	else
       	render 'new'
       end

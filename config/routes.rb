@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-
-
-  root 'lander_pages#home'
+  
   resources :reservations
   # get  'reservation' => 'reservation#new'
   # The priority is based upon order of creation: first created -> highest priority.
@@ -11,6 +9,6 @@ Rails.application.routes.draw do
   get   'contact'     => 'landing_pages#contact'
   get   'help'        => 'landing_pages#help'
   
-  get   'reservation' => 'reservation#new'
+  # get   'reservation' => 'reservation#new'
   
 end
