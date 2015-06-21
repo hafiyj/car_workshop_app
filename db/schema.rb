@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150621082946) do
+ActiveRecord::Schema.define(version: 20150621084336) do
 
   create_table "reservations", force: :cascade do |t|
     t.string   "name"
@@ -33,8 +33,11 @@ ActiveRecord::Schema.define(version: 20150621082946) do
     t.string   "address"
     t.string   "contact_num"
     t.string   "com_reg_num"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "password_digest"
   end
+
+  add_index "workshops", ["email"], name: "index_workshops_on_email", unique: true
 
 end
