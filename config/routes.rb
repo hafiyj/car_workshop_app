@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   # get  'reservation' => 'reservation#new'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
+
+  get 'workshops/new'
+
   root                   'landing_pages#home'
   get   'about'       => 'landing_pages#about'
   get   'contact'     => 'landing_pages#contact'
@@ -11,4 +14,5 @@ Rails.application.routes.draw do
   
   # get   'reservation' => 'reservation#new'
   
+  get   'signup'      => 'workshops#new'
 end
