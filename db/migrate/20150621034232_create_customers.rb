@@ -5,7 +5,6 @@ class CreateCustomers < ActiveRecord::Migration
       t.string :contact_number
       t.string :car_model
       t.string :car_reg_number
-      t.string :service_type
 
       t.timestamps null: false
     end
