@@ -1,11 +1,11 @@
 require 'test_helper'
 
 class WorkshopTest < ActiveSupport::TestCase
-  
+   
   def setup
-    @workshop = Workshop.new(name: "Example Workshop", email: "workshop@example.com",
+    @workshop = Workshop.new(name: "Example Workshop", email: "example@workshop.com", 
                               address: "A-31-1, Vista Komanwel D, 57000 Kuala Lumpur, WP",
-                              contact_num: "0388889999", com_reg_num: "R123456789",
+                              contact_num: "038998888", com_reg_num: "R1234567890",
                               password: "foobar", password_confirmation: "foobar")
   end
 
@@ -35,6 +35,13 @@ class WorkshopTest < ActiveSupport::TestCase
     assert_not @workshop.valid?
   end
   
+  test "email addresses should be saved as lower-case" do
+    mixed_case_email = "Foo@ExAMPle.CoM"
+    @workshop.email = mixed_case_email
+    @workshop.save
+    assert_equal mixed_case_email.downcase, @workshop.reload.email
+  end
+
   test "email validation should accept valid addresses" do
     valid_addresses = %w[user@example.com USER@foo.COM A_US-ER@foo.bar.org
                          first.last@foo.jp alice+bob@baz.cn]
@@ -43,7 +50,7 @@ class WorkshopTest < ActiveSupport::TestCase
       assert @workshop.valid?, "#{valid_address.inspect} should be valid"
     end
   end
-  
+
   # Contact Test
   test "contact should be present" do
     @workshop.contact_num = "       "
@@ -60,6 +67,11 @@ class WorkshopTest < ActiveSupport::TestCase
     @workshop.address = "         "
     assert_not @workshop.valid?
   end
-  
+
+  #Password Test
+  test "password should have a minimum length" do
+    @workshop.password = @workshop.password_confirmation = "a" * 5
+    assert_not @workshop.valid?
+  end
   
 end
