@@ -9,7 +9,7 @@ class ReservationsController < ApplicationController
 	end
 
 	def create
-     @reservation = Reservation.new(reserve_params)    
+     @reservation = Reservation.new(reserve_params)
       if @reservation.save
       	# Sends a message to the cust.
     	else
@@ -20,7 +20,8 @@ class ReservationsController < ApplicationController
     private
 
     def reserve_params
-      params.require(:reservation).permit(:name, :contact_number, :car_model, :car_reg_number, :service_type,
-                                   :time, :date)
+      params.require(:reservation).permit(:name, :contact_number, :car_model,
+																					:car_reg_number, :service_type,
+                                   				:time, :date)
     end
 end
