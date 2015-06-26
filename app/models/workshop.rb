@@ -1,6 +1,6 @@
 class Workshop < ActiveRecord::Base
-  before_save { self.email = email.downcase, 
-                self.com_reg_num = com_reg_num.upcase }
+  before_save { email.downcase!}
+  before_save { com_reg_num.upcase!}
                 
   validates :name, presence: true, length: { maximum: 100 }
   
@@ -8,7 +8,10 @@ class Workshop < ActiveRecord::Base
   validates :email, presence: true, length: { maximum: 255 }, 
             format: { with: VALID_EMAIL_REGEX }, 
             uniqueness: { case_sensitive: false }
-  validates :contact_num, presence: true, length: { maximum: 11 }
+
+  VALID_CONTACT_REGEX = /\A0\d{1}\d{7,8}\z/i
+  validates :contact_num, presence: true, length: { maximum: 11 },
+             format: { with: VALID_CONTACT_REGEX }
   validates :address, presence: true, length: { maximum: 500 }
   validates :com_reg_num, presence: true, length: { maximum: 15 }
   

@@ -1,0 +1,13 @@
+<% if @workshop.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      The form contains <%= pluralize(@workshop.errors.count, "error") %>. 
+      Please fill in the necessary information.
+    </div>
+    <ul>
+    <% @workshop.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
