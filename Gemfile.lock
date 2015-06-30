@@ -354,3 +354,6 @@ DEPENDENCIES
   unicorn
   web-console (= 2.0.0.beta3)
   will_paginate (= 3.0.7)
+
+BUNDLED WITH
+   1.10.3
