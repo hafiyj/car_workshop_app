@@ -15,7 +15,14 @@ class ReservationsController < ApplicationController
 	def create
      @reservation = Reservation.new(reserve_params)
       if @reservation.save
-      	flash[:success] = "Reservation made."
+      	@client = Twilio::REST::Client.new ENV["acc_SID"],
+				ENV["auth_token"]
+				@client.messages.create(
+  				from: '+1 415-599-2671',
+  				to: '+60182060472',
+  				body: 'Hey there!'
+					)
+				flash[:success] = "Reservation made."
 				redirect_to @reservation
     	else
       	render 'new'
