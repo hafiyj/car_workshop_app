@@ -4,7 +4,7 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@reservation) do |f| %>
-    <%= render 'shared/error_messages' %>
+    <%= render 'shared/reservation_error_messages' %>
 
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>
@@ -27,7 +27,8 @@
       <%= f.label :date %>
       <%= f.date_field :date, class: 'form-control' %>
 
-      <%= f.submit "Confirm", class: "btn btn-primary" %>
+      <%= f.submit "Confirm", class: "btn btn-primary" %> 
+      &#13
       <%= button_tag "Reset", type: :reset, class: "btn btn-danger btn-block" %>
     <% end %>
   </div>
