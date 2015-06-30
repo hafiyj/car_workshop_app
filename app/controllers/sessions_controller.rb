@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
     workshop = Workshop.find_by(email: params[:session][:email].downcase)
     if workshop && workshop.authenticate(params[:session][:password])
       log_in workshop
+      params[:session][:remember_me] == '1' ? remember(workshop) : forget(workshop)
       redirect_to workshop
     else
       flash.now[:danger] = 'Invalid email/password combination'
@@ -15,7 +16,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    log_out
+    log_out if logged_in?
     redirect_to root_url
   end
 end
