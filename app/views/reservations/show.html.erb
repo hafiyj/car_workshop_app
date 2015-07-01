@@ -1,0 +1,31 @@
+<% provide(:title, 'Reservations') %>
+
+<div class="jumbotron">
+	<section class="user_info">
+			<h1>Reservation Details:</h1>
+				<h2>
+					<b>Name:</b>
+						<%= @reservation.name %>
+					<br><br>
+					<b>Contact Number:</b>
+						<%= @reservation.contact_number %>
+					<br><br>
+					<b>Car Model:</b>
+						<%= @reservation.car_model %>
+					<br><br>
+					<b>Car registration number:</b>
+						<%= @reservation.car_reg_number %>
+          <br><br>
+  				<b>Service type:</b>
+  					<%= @reservation.service_type %>
+  				<br><br>
+  				<b>Time:</b>
+  					<%= @reservation.time %>
+          <br><br>
+          <b>Date:</b>
+            <%= @reservation.date %>
+				<h2>
+
+				<%= link_to "Edit Reservation", edit_reservation_path, class: "btn btn-lg btn-primary" %>
+	</section>
+</div>
