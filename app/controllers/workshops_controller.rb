@@ -1,5 +1,5 @@
 class WorkshopsController < ApplicationController
-  
+
   def show
   	@workshop = Workshop.find(params[:id])
   end
@@ -11,6 +11,7 @@ class WorkshopsController < ApplicationController
   def create
   	@workshop = Workshop.new(workshop_params)
   	if @workshop.save
+      log_in @workshop
   		flash[:success] = "Welcome to CarServIt!"
   		redirect_to @workshop
   	else

@@ -1,8 +1,1 @@
 # empty
-Kakimotor:
-  com_reg_num: 02112321
-  name: Kakimotor Sdn Bhd
-  email: kakimotor@example.com
-  contact_num: 03-55155151
-  address: No.31, jalan psj 18/6, sunway, selangor
-  password_digest: <%= workshop.digest('password') %>
