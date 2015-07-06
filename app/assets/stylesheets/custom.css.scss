@@ -61,7 +61,8 @@ line-height: 1.7em;
   background-image: image-url('landing-page.jpg');
   background-position: center center;
   color: white;
-  height : 580px;
+  display:block;
+  overflow:auto;
 }
 
 .header-small-sec {
