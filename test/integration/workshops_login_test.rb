@@ -3,7 +3,7 @@ require 'test_helper'
 class WorkshopsLoginTest < ActionDispatch::IntegrationTest
 
   def setup
-    @workshop = workshops(:Kakimotor)
+    @workshop = workshops(:workshop1)
   end
 
   test "login with valid information followed by logout" do
@@ -16,7 +16,7 @@ class WorkshopsLoginTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", login_path, count: 0
     assert_select "a[href=?]", signup_path, count: 0
     assert_select "a[href=?]", logout_path
-    assert_select "a[href=?]", workshops_path(@workshop)
+    assert_select "a[href=?]", workshop_path(@workshop)
 
     delete logout_path
     assert_not is_logged_in?
