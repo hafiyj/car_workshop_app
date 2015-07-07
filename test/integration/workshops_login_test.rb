@@ -10,9 +10,9 @@ class WorkshopsLoginTest < ActionDispatch::IntegrationTest
     get login_path
     post login_path, session: { email: @workshop.email, password: 'password' }
     assert is_logged_in?
-    assert_redirected_to @workshop
+    assert_redirected_to root_path
     follow_redirect!
-    assert_template 'workshops/show'
+    assert_template 'landing_pages/home'
     assert_select "a[href=?]", login_path, count: 0
     assert_select "a[href=?]", signup_path, count: 0
     assert_select "a[href=?]", logout_path
