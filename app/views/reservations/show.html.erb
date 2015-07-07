@@ -20,7 +20,7 @@
   					<%= @reservation.service_type %>
   				<br><br>
   				<b>Time:</b>
-  					<%= @reservation.time %>
+  					<%= @reservation.time.strftime('%I:%M %P') %>
           <br><br>
           <b>Date:</b>
             <%= @reservation.date %>

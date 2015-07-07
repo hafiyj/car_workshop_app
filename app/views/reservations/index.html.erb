@@ -1,8 +1,8 @@
 <% provide(:title, 'All reservation') %>
-<h1>All users</h1>
+<h1>All Reservation</h1>
 
 <ul class="users">
-  <% @reservations.each do |reservation| %>
+  <% @reservation.each do |reservation| %>
     <li>
       <%= link_to reservation.name, reservation %>
     </li>
