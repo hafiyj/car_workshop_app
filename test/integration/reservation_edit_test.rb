@@ -8,7 +8,7 @@ class ReservationEditTest < ActionDispatch::IntegrationTest
   test 'unsuccessful edits' do
     get edit_reservation_path(@reservation)
     assert_template 'reservations/edit'
-    patch reservation_path(@reservation), reservation: {name: "  ",
+    patch reservations_path(@reservation), reservation: {name: "  ",
                                                         contact_number: " ",
                                                         car_model: " ",
                                                         car_reg_number: " ",

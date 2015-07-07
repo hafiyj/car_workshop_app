@@ -20,7 +20,7 @@ class ReservationsController < ApplicationController
 				@client.messages.create(
   				from: '+1 415-599-2671',
   				to: '+60182060472',
-  				body: 'Hey there!'
+  				body: '#{:name}'
 					)
 				flash[:success] = "Reservation made."
 				redirect_to @reservation
