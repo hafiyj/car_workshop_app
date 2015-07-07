@@ -40,7 +40,7 @@ margin-bottom: 30px;
 text-align: center;
 }
 h2 {
-font-size: 1.2em;
+font-size: 2em;
 letter-spacing: -1px;
 margin-bottom: 30px;
 text-align: center;
@@ -51,15 +51,92 @@ font-size: 1.1em;
 line-height: 1.7em;
 }
 
-/* header */
-.font_col {
-  color: white;
+/* Landing Page Body */
+
+.main-body-container{
+  background-color: transparentize(grey, 0.9);
 }
-/* header */
 
 .main_header {
   background-image: image-url('landing-page.jpg');
   background-position: center center;
+  color: white;
+  display:block;
+  overflow:auto;
+}
+
+.header-small-sec {
+  color: black;
+  background-color: transparentize(white, 0.4);
+}
+
+.service-heading {
+    margin: 15px 0;
+    text-transform: none;
+}
+
+.workshop-header {
+  background-color: transparentize(blue,0.5);
+  color: white;
+
+}
+/* Landing Page Section Heading */
+
+.section-sizing{
+  height: 600px;
+}
+
+section h2.section-heading {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 40px;
+    text-transform: none;
+    color:black;
+}
+
+section h3.section-subheading {
+    margin-bottom: 75px;
+    text-transform: none;
+    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 400;
+}
+
+/* Landing Page Section Propoerties */
+
+.service-prop {
+  background-color: transparentize(black, 0.8);
+  line-height: 2;
+}
+
+.user-friendly-prop {
+  background-color: transparentize(blue, 0.5);
+  color: white;
+  line-height: 2;
+}
+
+.computerized-prop {
+  background-color: transparentize(orange, 0.5);
+  color: white;
+  line-height: 2;
+}
+
+.notification-prop {
+  background-color: transparentize(green, 0.5);
+  color: white;
+  line-height: 2;
+}
+
+.signup-prop {
+  background-color: transparentize(red, 0.5);
+  color: white;
+  line-height: 2;
+}
+
+.subscribe-prop {
+  background-color: transparentize(yellow, 0.5);
+  line-height: 2;
 }
 
 #logo {
