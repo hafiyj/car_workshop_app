@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 20150708065424) do
     t.string   "contact_number"
     t.string   "car_model"
     t.string   "car_reg_number"
-    t.string   "service_type"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
