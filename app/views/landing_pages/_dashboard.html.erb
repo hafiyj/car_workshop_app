@@ -1,0 +1,33 @@
+<div class="jumbotron workshop-header font_col">
+  <h2><%= current_workshop.name %></h2>
+  <hr>
+
+  <div class="row text-center">
+      <div class="col-md-4">
+        <div class="jumbotron header-small-sec">
+          <h2>Place Reservation</h2>
+          <br>
+          <p>Place the call-in reservation</p>
+          <%= link_to "Select", new_reserv_path, class: "btn btn-lg btn-primary" %>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="jumbotron header-small-sec">
+          <h2>Manage Reservation</h2>
+          <br>
+          <p>Update and Delete the reservation</p>
+          <%= link_to "Select", '#', class: "btn btn-lg btn-primary" %>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="jumbotron header-small-sec">
+          <h2>View<br>Reports</h2>
+          <br>
+          <p>View the reservation reports</p>
+          <%= link_to "Select", '#', class: "btn btn-lg btn-primary" %>
+        </div>
+      </div>
+  </div>
+</div>
