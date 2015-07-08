@@ -1,8 +1,10 @@
 class CustomersController < ApplicationController
-  def new
-  end
   
   def index
-    @customers = User.all
+    @reservation = Reservation.all
+  end
+  
+  def show
+    @reservation = Reservation.find(params[:id])
   end
 end

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get 'customers' => 'customers#index'
+  get 'customers/show' => 'customers#show'
 
 
   get  'reservation' => 'reservation#new'
