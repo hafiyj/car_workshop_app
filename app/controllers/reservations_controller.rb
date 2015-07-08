@@ -20,14 +20,7 @@ class ReservationsController < ApplicationController
 				@client.messages.create(
   				from: '+1 415-599-2671',
   				to: '+60182060472',
-  				body: "Thank You for contacting us. \n
-								Name: #{@reservation.name} \n
-								Ph Number: #{@reservation.contact_number} \n
-								Car Model: #{@reservation.car_model} \n
-								Car Plate: #{@reservation.car_reg_number} \n
-								Service Type: #{@reservation.service_type} \n
-								Time: #{@reservation.time.strftime('%I:%M %P')} \n
-								Date: #{@reservation.date} \n"
+  				body: "Thank You for contacting us. \n Name: #{@reservation.name} \n Ph Number: #{@reservation.contact_number} \n Car Model: #{@reservation.car_model} \n Car Plate: #{@reservation.car_reg_number} \n Service Type: #{@reservation.service_type} \n Time: #{@reservation.time.strftime('%I:%M %P')} \n Date: #{@reservation.date} \n"
 					)
 				flash[:success] = "Reservation made."
 				redirect_to @reservation
