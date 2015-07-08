@@ -2,12 +2,12 @@
 
 <div class="jumbotron">
 	<section class="user_info">
-			<h1>Workshop Details:</h1>
+			<h1>Workshop Details: <hr></h1>
 				<h2>
 					<b>Workshop:</b>
 						<%= @workshop.name %>
 					<br><br>
-					<b>Email:</b> 
+					<b>Email:</b>
 						<%= @workshop.email %>
 					<br><br>
 					<b>Contact Number:</b>
@@ -17,6 +17,6 @@
 						<%= @workshop.address %>
 				<h2>
 
-				<%= link_to "Edit Profile", "#", class: "btn btn-lg btn-primary" %>
+				<%= link_to "Back", root_path, class: "btn btn-lg btn-primary" %>
 	</section>
 </div>

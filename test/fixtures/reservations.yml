@@ -1,2 +1,8 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
+Ali:
+  name: Ali uzair
+  contact_number: 012-6654678
+  car_model: FD2R
+  car_reg_number: MCD 9797
+  service_type: Minor
+  time: 09.00AM
+  date: 12/12/2015

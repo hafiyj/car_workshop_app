@@ -1,13 +1,125 @@
-<div class="center jumbotron main_header font_col">
-  
-    <h1>Welcome to CarServIt!</h1>
-    
-    <p></p>
+<div class="main-body-container">
 
-    <h2>YOUR WORKSHOP RESERVATION MANAGER</h2>
-    
-    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
-    
-    <p></p>
-    <p></p>
+    <!-- Workshop Logged In Menu -->
+    <% if logged_in? %>
+      <%= render 'landing_pages/dashboard' %>
+      
+    <!-- Home page Menu (User not logged In) -->
+    <% else %>
+      <div class="center jumbotron main_header font_col">
+        <h1>CarServIt</h1><br><br><br>
+        <p>YOUR WORKSHOP RESERVATION MANAGER</p>
+        <hr>
+
+        <div class="row text-center">
+            <div class="col-md-6">
+              <div class="jumbotron header-small-sec">
+                <h2>New Comer?</h2>
+                <br>
+                <p>Get to know more about CarServIt</p>
+                <a href="#services" class="page-scroll btn btn-lg btn-primary">Tell Me More</a>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="jumbotron header-small-sec">
+                <h2>Current Workshop?</h2>
+                <br>
+                <p>Sign in here!</p>
+                <%= link_to "Sign In", login_path, class: "btn btn-lg btn-primary" %>
+              </div>
+            </div>
+        </div>
+      </div>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="jumbotron center section-sizing service-prop">
+            <%= image_tag("logo-black.png", alt: "CarServIt logo", :size => "244x74")%>
+            <br><br>
+            <h1 class="section-heading">Who are we?</h1><br>
+            <h2>Your workshops customers reservation management at your fingertips.
+              To decrease your workload, the customers will be automatically notified
+              through SMS when their reservation is confirmed.</h3>
+        </div>
+    </section>
+
+    <!-- User Friendly Section -->
+    <section id="user-friendly">
+      <div class="jumbotron center section-sizing user-friendly-prop">
+        <%= image_tag("user_friendly.png", alt: "User friendly", :size => "250x250")%>
+        <h1 class="section-heading">User-friendly</h1>
+        <h2>Almost every workshop owner will be able to use this application,
+          as the user interface will be very simple and will be understandable for the users.</h2>
+      </div>
+    </section>
+
+    <!-- Computerized Section -->
+    <section id="computerized">
+      <div class="jumbotron center section-sizing computerized-prop">
+        <%= image_tag("computerized.png", :size => "250x250")%>
+        <h1 class="section-heading">Add, edit or delete reservation</h1>
+        <h2>Workshop owners can add new reservation, edit or delete the
+          current reservation in one application. All these functions in one page for our
+          workshop owners.</h2>
+      </div>
+    </section>
+
+    <!-- Notification Section -->
+    <section id="notification">
+      <div class="jumbotron center section-sizing notification-prop">
+        <%= image_tag("sms.png", alt: "SMS", :size => "250x250")%>
+        <h1 class="section-heading">Auto notify customers</h1>
+        <h2>Customers will be automatically receive the information about the
+          reservation upon the confirmation of the reservation. Workshop owners
+          won't have to call their customers again to inform them about their reservation status.</h2>
+      </div>
+    </section>
+
+    <!-- Signup Section -->
+    <section id="signup">
+      <div class="jumbotron center section-sizing signup-prop">
+        <div class="row">
+          <%= image_tag("signup.png", alt: "User friendly", :size => "250x250")%>
+          <h1 class="section-heading">Feeling great about CarServIt?</h>
+          <h2>Sign Up by today a get free 3 months trials!</h2>
+          <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+        </div>
+      </div>
+    </section>
+
+    <!-- Subscribtion Section -->
+    <section id="contact">
+        <div class="jumbotron center section-sizing subscribe-prop">
+          <%= image_tag("email.png", :size => "200x200")%>
+          <h1 class="section-heading">Subscribe</h2>
+          <h3>Subscribe to get more updates about CarServIt.com!</h3>
+          <br>
+        <div class="row">
+        <div class="col-lg-12">
+          <form action="https://carservit.us11.list-manage.com/subscribe/post?u=d0208299ea8b17c26bc646288&amp;id=2dcfc1f698" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+            <div class="row">
+              <div class="col-md-6 col-md-offset-3">
+                <div class="form-group">
+                  <input type="email" name="EMAIL" class="form-control" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address.">
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+                <div class="clearfix"></div>
+                <div class="col-lg-12 text-center">
+                <div id="success"></div>
+                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                <div style="position: absolute; left: -5000px;"><input type="text" name="b_d0208299ea8b17c26bc646288_2dcfc1f698" tabindex="-1" value=""></div>
+                <br>
+                <%= link_to "Subscribe", '#', class: "btn btn-lg btn-primary" %>
+                </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    </section>
+
+  <% end %>
+
 </div>

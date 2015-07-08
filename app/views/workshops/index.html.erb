@@ -1,0 +1,18 @@
+<% provide(:title, 'All Workshops') %>
+<h1>All Workshops</h1>
+
+<%= will_paginate %>
+
+<ul class="users">
+  <% @workshops.each do |workshop| %>
+    <li>
+      <%= link_to workshop.name, workshop %>
+        <% if current_workshop.admin? && !current_workshop?(workshop) %> | 
+          <%= link_to "delete", workshop, method: :delete,
+                        data: { confirm: "Comfirm to remove this workshop?" } %>
+        <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<%= will_paginate %>

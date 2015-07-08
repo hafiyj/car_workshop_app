@@ -1,1 +1,7 @@
-# empty
+workshop1:
+  name: One Stop Service Centre
+  email: onestopser@gmail.com
+  address: Lot 50, Jalan Ampang, 54000 Kuala Lumpur, WP
+  contact_num: 038992299
+  com_reg_num: R123456789
+  password_digest: <%= Workshop.digest('password') %>

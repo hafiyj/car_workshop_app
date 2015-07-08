@@ -1,9 +1,9 @@
 require 'test_helper'
 
 class WorkshopTest < ActiveSupport::TestCase
-   
+
   def setup
-    @workshop = Workshop.new(name: "Example Workshop", email: "example@workshop.com", 
+    @workshop = Workshop.new(name: "Example Workshop", email: "example@workshop.com",
                               address: "A-31-1, Vista Komanwel D, 57000 Kuala Lumpur, WP",
                               contact_num: "038998888", com_reg_num: "R1234567890",
                               password: "foobar", password_confirmation: "foobar")
@@ -18,12 +18,12 @@ class WorkshopTest < ActiveSupport::TestCase
     @workshop.name = "     "
     assert_not @workshop.valid?
   end
-  
+
   test "name should not be too long" do
     @workshop.name = " " * 51
     assert_not @workshop.valid?
   end
-  
+
   # Email Test
   test "email should be present" do
     @workshop.email = "       "
@@ -34,7 +34,7 @@ class WorkshopTest < ActiveSupport::TestCase
     @workshop.email = "a" * 244 + "@example.com"
     assert_not @workshop.valid?
   end
-  
+
   test "email addresses should be saved as lower-case" do
     mixed_case_email = "Foo@ExAMPle.CoM"
     @workshop.email = mixed_case_email
@@ -56,12 +56,12 @@ class WorkshopTest < ActiveSupport::TestCase
     @workshop.contact_num = "       "
     assert_not @workshop.valid?
   end
-  
+
   test "contact should not be too long" do
-    @workshop.contact_num = "a" * 12 
+    @workshop.contact_num = "a" * 12
     assert_not @workshop.valid?
   end
-  
+
   #Address Test
   test "address should be present" do
     @workshop.address = "         "
@@ -73,5 +73,10 @@ class WorkshopTest < ActiveSupport::TestCase
     @workshop.password = @workshop.password_confirmation = "a" * 5
     assert_not @workshop.valid?
   end
-  
+
+  #Authentication Test
+  test "authenticated? should return false for a user with nil digest" do
+    assert_not @workshop.authenticated?('')
+  end
+
 end
