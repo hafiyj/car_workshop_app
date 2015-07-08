@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   delete  'logout'        => 'sessions#destroy'
 
   get     'new_reserv'    => 'reservations#new'
-  get 'customers' => 'customers#index'
-  get 'customers/show' => 'customers#show'
+  get     'customers'     => 'reservations#index'
+  get     'customers/show'=> 'customers#show'
 
   resources :workshops
   resources :reservations

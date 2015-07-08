@@ -8,3 +8,4 @@ class CustomersController < ApplicationController
     @reservation = Reservation.find(params[:id])
   end
 end
+
