@@ -4,7 +4,7 @@
     <nav>
       <%= link_to image_tag("logo.png", alt: "CarServIt logo", :size => "122x37"), root_path, id: "logo" %>
       <ul class="nav navbar-nav navbar-right">
-        
+
         <% if logged_in? %>
           <li><%= link_to "Dashboard",   root_path %></li>
           <li><%= link_to "Help",   help_path %></li>
@@ -13,8 +13,8 @@
               Account <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li><%= link_to "Profile", current_workshop %></li>
-              <li><%= link_to "Settings", '#' %></li>
+              <li><%= link_to "View Profile", current_workshop %></li>
+              <li><%= link_to "Settings", edit_workshop_path(current_workshop) %></li>
               <li class="divider"></li>
               <li>
                 <%= link_to "Log out", logout_path, method: "delete" %>

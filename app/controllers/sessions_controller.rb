@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if workshop && workshop.authenticate(params[:session][:password])
       log_in workshop
       params[:session][:remember_me] == '1' ? remember(workshop) : forget(workshop)
-      redirect_to root_path
+      redirect_back_or root_path
     else
       flash.now[:danger] = 'Invalid email/password combination'
       render 'new'
