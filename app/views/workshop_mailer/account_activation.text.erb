@@ -1,0 +1,7 @@
+Hello <%= @workshop.name %>,
+
+Welcome to the CarServIt!
+
+Click on the link below to activate your account:
+
+<%= edit_account_activation_url(@workshop.activation_token, email: @workshop.email) %>
