@@ -18,9 +18,11 @@ class WorkshopsSignupTest < ActionDispatch::IntegrationTest
 		                               			password_confirmation: 	"bar" }
     end
     assert_template 'workshops/new'
+    assert_select 'div#error_explanation'
+    assert_select 'div.field_with_errors'
   end
 
-  test "valid signup information" do
+  test "valid signup information with account activation" do
     get signup_path
     assert_difference 'Workshop.count', 1 do
       post workshops_path, workshop: {name: 	 								"Example Workshop",
