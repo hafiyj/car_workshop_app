@@ -8,6 +8,9 @@
         <% if logged_in? %>
           <li><%= link_to "Dashboard",   root_path %></li>
           <li><%= link_to "Help",   help_path %></li>
+            <% if current_workshop.admin? %>
+              <li><%= link_to "Workshops", all_workshops_path %></li>
+            <% end %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               Account <b class="caret"></b>

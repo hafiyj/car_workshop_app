@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
 
-  root                      'landing_pages#home'
+  root                       'landing_pages#home'
   get     'about'         => 'landing_pages#about'
   get     'contact'       => 'landing_pages#contact'
   get     'help'          => 'landing_pages#help'
 
   get     'signup'        => 'workshops#new'
+  get     'all_workshops' => 'workshops#index'
 # get     'edit_workshop' => 'workshops#edit'
 
   get     'login'         => 'sessions#new'
@@ -16,4 +17,6 @@ Rails.application.routes.draw do
 
   resources :workshops
   resources :reservations
+  resources :account_activations, only: [:edit]
+
 end

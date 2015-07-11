@@ -5,3 +5,5 @@ workshop1:
   contact_num: 038992299
   com_reg_num: R123456789
   password_digest: <%= Workshop.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>

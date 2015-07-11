@@ -1,0 +1,9 @@
+<h1>CarServIt</h1>
+
+<p>Hello <%= @workshop.name %>,</p>
+
+<p>Welcome to CarServIt!</p>
+<p>Click on the link below to activate your account:</p>
+
+<%= link_to "Activate", edit_account_activation_url(@workshop.activation_token,
+                                                    email: @workshop.email) %>

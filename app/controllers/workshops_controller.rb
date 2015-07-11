@@ -18,9 +18,9 @@ class WorkshopsController < ApplicationController
   def create
   	@workshop = Workshop.new(workshop_params)
   	if @workshop.save
-      log_in @workshop
-  		flash[:success] = "Welcome to CarServIt!"
-  		redirect_to @workshop
+      @workshop.send_activation_email
+      flash[:info] = "Welcome to CarServIt, please check your email to activate your account."
+      redirect_to root_path
   	else
   		render 'new'
   	end
@@ -62,10 +62,12 @@ class WorkshopsController < ApplicationController
       end
     end
 
+    # Only Correct Workshop (Itself) can view the Profile, And also Admin.
     def correct_workshop
       @workshop = Workshop.find(params[:id])
-      redirect_to(root_url) unless current_workshop?(@workshop)
+      redirect_to(root_url) unless current_workshop?(@workshop) || current_workshop.admin?
     end
+
 
     def admin_workshop
       redirect_to(root_url) unless current_workshop.admin?
