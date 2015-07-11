@@ -5,9 +5,8 @@ class WorkshopMailer < ApplicationMailer
     mail to: workshop.email, subject: "Account activation"
   end
 
-  def password_reset
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+  def password_reset(workshop)
+    @workshop = workshop
+    mail to: workshop.email, subject: "Password reset"
   end
 end
