@@ -54,14 +54,6 @@ class WorkshopsController < ApplicationController
   																			:contact_num, :password, :password_confirmation)
   	end
 
-    def logged_in_workshop
-      unless logged_in?
-        store_location
-        flash[:danger] = "Please log in."
-        redirect_to login_url
-      end
-    end
-
     # Only Correct Workshop (Itself) can view the Profile, And also Admin.
     def correct_workshop
       @workshop = Workshop.find(params[:id])

@@ -1,6 +1,8 @@
 class LandingPagesController < ApplicationController
   def home
-    @reservation = Reservation.all
+    if logged_in?
+      @reservation = current_workshop.reservations
+    end
   end
 
   def about
