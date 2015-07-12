@@ -276,3 +276,9 @@ input {
     border-bottom:1px solid $gray-lighter;
   }
 }
+
+.no-repeat-header{
+  padding-right: 12px !important;
+  background-repeat: no-repeat !important;
+  background-position: right center !important;
+}

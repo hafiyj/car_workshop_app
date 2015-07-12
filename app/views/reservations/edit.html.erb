@@ -28,8 +28,10 @@
       <%= f.date_field :date, class: 'form-control' %>
 
       <%= f.submit "Confirm", class: "btn btn-primary" %>
-      &#13
+      <br></br>
       <%= button_tag "Reset", type: :reset, class: "btn btn-danger btn-block" %>
+      <br></br>
+      <%= link_to "Back" , reservations_path , class: "btn btn-default btn-block" %>
     <% end %>
   </div>
 </div>

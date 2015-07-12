@@ -3,13 +3,24 @@ Workshop.create!(name: "Car Workshop App - CarServIt [Admin]",
                  address: "MaGIC @ CyberJaya",
                  contact_num: "0389951515",
                  com_reg_num: "R123456789",
-                 password: "123456",
-                 password_confirmation: "123456",
+                 password: "111111",
+                 password_confirmation: "111111",
                  admin:     true,
                  activated: true,
                  activated_at: Time.zone.now)
 
-99.times do |n|
+Workshop.create!(name: "Testing Account",
+                 email: "testing@gmail.com",
+                 address: "MaGIC @ CyberJaya",
+                 contact_num: "0389951543",
+                 com_reg_num: "R123456788",
+                 password: "111111",
+                 password_confirmation: "111111",
+                 admin:     false,
+                 activated: true,
+                 activated_at: Time.zone.now)
+
+48.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+1}@carworkshopapp.com"
   address = "Lot #{n+1}, Jalan Taman #{n+1}, 54000 Kuala Lumpur, WP"

@@ -3,11 +3,13 @@ class ApplicationController < ActionController::Base
 	protect_from_forgery with: :exception
 	include SessionsHelper
 
-	# def acc_SID
-	# 	@acc_SID = ENV["acc_SID"]
-	# end
-	#
-	# def auth_token
-	# 	@auth_token = ENV["auth_token"]
-	# end
+	private
+	# Confirms a logged-in user.
+	def logged_in_workshop
+		unless logged_in?
+			store_location
+			flash[:danger] = "Please log in."
+			redirect_to login_url
+		end
+	end
 end

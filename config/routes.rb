@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'password_resets/new'
-
-  get 'password_resets/edit'
-
   root                       'landing_pages#home'
   get     'about'         => 'landing_pages#about'
   get     'contact'       => 'landing_pages#contact'

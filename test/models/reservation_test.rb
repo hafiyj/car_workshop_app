@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class ReservationTest < ActiveSupport::TestCase
-  
+
   def setup
   	@reservation = Reservation.new(name: "Example cust", contact_number: "0000000000", car_model: "Myvi", car_reg_number: "MMM 111",
   									service_type: "Minor", time: "09:00:00", date: "2015-11-20")
@@ -64,13 +64,6 @@ class ReservationTest < ActiveSupport::TestCase
   test "car reg number should not be too long" do
   	@reservation.car_reg_number = "a" * 11
   	assert_not @reservation.valid?
-  end
-
-  test "car reg number should be unique" do
-  	duplicate_car_reg_number = @reservation.dup
-  	duplicate_car_reg_number.car_reg_number = @reservation.car_reg_number.upcase
-  	@reservation.save
-  	assert_not duplicate_car_reg_number.valid?
   end
 
 end
