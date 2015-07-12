@@ -1,23 +1,24 @@
 class ReservationsController < ApplicationController
+	before_action :logged_in_workshop, only: [:index, :show, :create, :destroy]
 
 	def new
-		@reservation = Reservation.new
+		@reservation = current_workshop.reservations.build
 	end
 
 	def index
 		if params[:search]
-			@reservation = Reservation.search(params[:search])
+			@reservation = current_workshop.reservations.search(params[:search])
 		else
-			@reservation = Reservation.all
+			@reservation = current_workshop.reservations
 		end
 	end
 
 	def show
-		@reservation = Reservation.find(params[:id])
+		@reservation = current_workshop.reservations
 	end
 
 	def create
-     @reservation = Reservation.new(reserve_params)
+     @reservation = current_workshop.reservations.create(reserve_params)
       if @reservation.save
       	@client = Twilio::REST::Client.new ENV["acc_SID"],
 				ENV["auth_token"]
@@ -34,11 +35,11 @@ class ReservationsController < ApplicationController
     end
 
 		def edit
-			@reservation = Reservation.find(params[:id])
+			@reservation = current_workshop.reservations.find_by(params[:id])
 		end
 
 		def update
-    @reservation = Reservation.find(params[:id])
+    @reservation = current_workshop.reservations.find_by(params[:id])
     if @reservation.update_attributes(reserve_params)
 			@client = Twilio::REST::Client.new ENV["acc_SID"],
 			ENV["auth_token"]
@@ -54,7 +55,7 @@ class ReservationsController < ApplicationController
     end
   end
 
-    private
+  private
 
     def reserve_params
       params.require(:reservation).permit(:name, :contact_number, :car_model,

@@ -1,4 +1,6 @@
 class Workshop < ActiveRecord::Base
+  has_many :reservations, dependent: :destroy
+
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save   :downcase_email, :upcase_com_reg_num
   before_create :create_activation_digest
