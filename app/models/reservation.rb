@@ -12,11 +12,17 @@ class Reservation < ActiveRecord::Base
 	validates :service_type, 	presence: true
 	validates :time, 			presence: true
 	validates :date, 			presence: true
+	validate :present_date
 
 	# It returns the Reservation
   def self.search(query)
     # where(:title, query) -> This would return an exact match of the query
     where("id like ?", "%#{query}%")
+  end
+
+	def present_date
+    errors.add(:date, "can't be in the past") if
+		!date.blank? and date < Date.today
   end
 
 	private
