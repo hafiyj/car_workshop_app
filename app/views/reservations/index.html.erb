@@ -9,12 +9,20 @@
 </div>
 <% end %>
 
-<hr>
-
-<ul class="reserved">
-    <% @reservation.each do |reservation| %>
-    <li>
-      <%= link_to reservation.car_reg_number, reservation %>
-    </li>
-  <% end %>
-</ul>
+<!-- <ul class="reserved"> -->
+    <table class="table">
+      <tr>
+        <td class="no-repeat-header">ID</td>
+        <td class="no-repeat-header">Reg Number</td>
+        <td class="no-repeat-header">Time</td>
+        <td class="no-repeat-header">Date</td>
+      </tr>
+      <% @reservation.each do |reservation| %>
+      <tr>
+        <td><%= link_to reservation.id, reservation %></td>
+        <td><%= link_to reservation.car_reg_number, reservation %></td>
+        <td><%= link_to reservation.time.strftime('%I:%M %P'), reservation %></td>
+        <td><%= link_to reservation.date, reservation %></td>
+      </tr>
+      <% end %>
+    </table>

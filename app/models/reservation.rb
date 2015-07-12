@@ -3,13 +3,12 @@ class Reservation < ActiveRecord::Base
 	validates :name, 			presence: true, length: { maximum: 50 }
 	validates :contact_number, 	presence: true, length: { maximum: 11 }
 	validates :car_model, 		presence: true, length: { maximum: 15 }
-	validates :car_reg_number, 	presence: true, length: { maximum: 10 },
-	           uniqueness: { case_sensitive: false}
+	validates :car_reg_number, 	presence: true, length: { maximum: 10 }
 	validates :service_type, 	presence: true
 	validates :time, 			presence: true
 	validates :date, 			presence: true
 
-	# It returns the articles whose titles contain one or more words that form the query
+	# It returns the Reservation
   def self.search(query)
     # where(:title, query) -> This would return an exact match of the query
     where("car_reg_number like ? OR date like ? OR id like ?", "%#{query}%",

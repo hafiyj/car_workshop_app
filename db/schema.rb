@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150711055455) do
+ActiveRecord::Schema.define(version: 20150712052703) do
 
   create_table "reservations", force: :cascade do |t|
     t.string   "name"
@@ -24,8 +24,6 @@ ActiveRecord::Schema.define(version: 20150711055455) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
-
-  add_index "reservations", ["car_reg_number"], name: "index_reservations_on_car_reg_number", unique: true
 
   create_table "workshops", force: :cascade do |t|
     t.string   "name"

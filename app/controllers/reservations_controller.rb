@@ -6,7 +6,7 @@ class ReservationsController < ApplicationController
 
 	def index
 		if params[:search]
-			@reservation = Reservation.search(params[:search]).order("created_at DESC")
+			@reservation = Reservation.search(params[:search])
 		else
 			@reservation = Reservation.all
 		end
