@@ -19,7 +19,7 @@
       <%= f.text_field :car_reg_number, class: 'form-control' %>
 
       <%= f.label :service_type %>
-      <%= f.text_field :service_type, class: 'form-control' %>
+      <%= f.select :service_type, options_for_select(["Minor Service", "Major Service", "Car Checkup"]), {}, { class: 'form-control' } %>
 
       <%= f.label :time %>
       <%= f.time_field :time, class: 'form-control' %>
