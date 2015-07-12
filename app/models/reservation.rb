@@ -5,13 +5,13 @@ class Reservation < ActiveRecord::Base
   validates :workshop_id, presence: true
 
 	before_save :upcase_car_reg_number
-	validates :name, 			presence: true, length: { maximum: 50 }
+	validates :name, 						presence: true, length: { maximum: 50 }
 	validates :contact_number, 	presence: true, length: { maximum: 11 }
-	validates :car_model, 		presence: true, length: { maximum: 15 }
+	validates :car_model, 			presence: true, length: { maximum: 15 }
 	validates :car_reg_number, 	presence: true, length: { maximum: 10 }
-	validates :service_type, 	presence: true
-	validates :time, 			presence: true
-	validates :date, 			presence: true
+	validates :service_type, 		presence: true
+	validates :time, 						presence: true
+	validates :date, 						presence: true
 
 	# It returns the Reservation
   def self.search(query)
