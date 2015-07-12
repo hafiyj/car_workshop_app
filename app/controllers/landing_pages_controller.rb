@@ -1,5 +1,6 @@
 class LandingPagesController < ApplicationController
   def home
+    @reservation = Reservation.all
   end
 
   def about

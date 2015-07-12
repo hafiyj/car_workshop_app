@@ -1,32 +1,28 @@
 <div class="jumbotron workshop-header font_col">
-  <h2><%= current_workshop.name %></h2>
+  <h4><%= current_workshop.name %></h4>
   <hr>
 
-  <div class="row text-center">
-      <div class="col-md-4">
+  <div class="row">
+      <div class="col-md-8">
         <div class="jumbotron header-small-sec">
-          <h2>Place Reservation</h2>
-          <br>
-          <p>Place the call-in reservation</p>
-          <%= link_to "Select", new_reserv_path, class: "btn btn-lg btn-primary" %>
+          <% if @reservation.any? %>
+            <%= render 'reservations/index' %>
+          <% elsif %>
+          <h2>No reservation found.</h2>
+          <% end %>
+
         </div>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-4 text-center">
         <div class="jumbotron header-small-sec">
-          <h2>Manage Reservation</h2>
+          <h4>Place Reservation</h4>
           <br>
-          <p>Update and Delete the reservation</p>
-          <%= link_to "Select", reservations_path, class: "btn btn-lg btn-primary" %>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="jumbotron header-small-sec">
-          <h2>View<br>Reports</h2>
+          <%= link_to "Select", new_reserv_path, class: "btn btn-primary" %>
+          <br><hr><br>
+          <h4>View Reports</h4>
           <br>
-          <p>View the reservation reports</p>
-          <%= link_to "Select", '#', class: "btn btn-lg btn-primary" %>
+          <%= link_to "Select", '#', class: "btn btn-primary" %>
         </div>
       </div>
   </div>
