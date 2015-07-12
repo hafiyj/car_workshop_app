@@ -14,7 +14,7 @@ class ReservationsController < ApplicationController
 	end
 
 	def show
-		@reservation = current_workshop.reservations
+		@reservation = current_workshop.reservations.find_by(params[:id])
 	end
 
 	def create
