@@ -13,6 +13,15 @@
 
 ActiveRecord::Schema.define(version: 20150712065108) do
 
+  create_table "customers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "contact_number"
+    t.string   "car_model"
+    t.string   "car_reg_number"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
   create_table "reservations", force: :cascade do |t|
     t.string   "name"
     t.string   "contact_number"
