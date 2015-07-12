@@ -173,6 +173,8 @@ GEM
     fog-xml (0.1.2)
       fog-core
       nokogiri (~> 1.5, >= 1.5.11)
+    font-awesome-sass (4.3.2.1)
+      sass (~> 3.2)
     formatador (0.2.5)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
@@ -343,6 +345,7 @@ DEPENDENCIES
   faker (= 1.4.2)
   figaro
   fog (= 1.31.0)
+  font-awesome-sass
   guard-minitest (= 2.3.1)
   jbuilder (= 2.2.3)
   jquery-rails (= 4.0.3)
@@ -363,3 +366,6 @@ DEPENDENCIES
   unicorn
   web-console (= 2.0.0.beta3)
   will_paginate (= 3.0.7)
+
+BUNDLED WITH
+   1.10.5

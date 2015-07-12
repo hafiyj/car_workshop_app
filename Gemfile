@@ -19,6 +19,7 @@ gem 'sdoc',                    '0.4.0', group: :doc
 gem 'unicorn'
 gem 'twilio-ruby',             '4.2.1'
 gem 'figaro'
+gem 'font-awesome-sass'        
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'

@@ -5,7 +5,11 @@ class ReservationsController < ApplicationController
 	end
 
 	def index
-		@reservation = Reservation.all
+		if params[:search]
+			@reservation = Reservation.search(params[:search]).order("created_at DESC")
+		else
+			@reservation = Reservation.all
+		end
 	end
 
 	def show
@@ -36,6 +40,13 @@ class ReservationsController < ApplicationController
 		def update
     @reservation = Reservation.find(params[:id])
     if @reservation.update_attributes(reserve_params)
+			@client = Twilio::REST::Client.new ENV["acc_SID"],
+			ENV["auth_token"]
+			@client.messages.create(
+				from: '+1 415-599-2671',
+				to: '+60182060472',
+				body: "Thank You for contacting us. \n Name: #{@reservation.name} \n Ph Number: #{@reservation.contact_number} \n Car Model: #{@reservation.car_model} \n Car Plate: #{@reservation.car_reg_number} \n Service Type: #{@reservation.service_type} \n Time: #{@reservation.time.strftime('%I:%M %P')} \n Date: #{@reservation.date} \n"
+				)
       flash[:success] = "Reservation updated"
 			redirect_to @reservation
     else
