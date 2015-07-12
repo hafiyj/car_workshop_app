@@ -76,7 +76,7 @@ class WorkshopTest < ActiveSupport::TestCase
 
   #Authentication Test
   test "authenticated? should return false for a user with nil digest" do
-    assert_not @workshop.authenticated?('')
+    assert_not @workshop.authenticated?(:remember, '')
   end
 
 end

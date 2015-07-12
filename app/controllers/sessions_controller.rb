@@ -1,14 +1,21 @@
 class SessionsController < ApplicationController
-  def new
 
+  def new
   end
 
   def create
-    workshop = Workshop.find_by(email: params[:session][:email].downcase)
-    if workshop && workshop.authenticate(params[:session][:password])
-      log_in workshop
-      params[:session][:remember_me] == '1' ? remember(workshop) : forget(workshop)
-      redirect_back_or root_path
+    @workshop = Workshop.find_by(email: params[:session][:email].downcase)
+    if @workshop && @workshop.authenticate(params[:session][:password])
+      if @workshop.activated?
+        log_in @workshop
+        params[:session][:remember_me] == '1' ? remember(@workshop) : forget(@workshop)
+        redirect_back_or root_url
+      else
+        message  = "Account not activated. "
+        message += "Check your email for the activation link."
+        flash[:warning] = message
+        redirect_to root_url
+      end
     else
       flash.now[:danger] = 'Invalid email/password combination'
       render 'new'

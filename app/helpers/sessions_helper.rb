@@ -15,7 +15,7 @@ module SessionsHelper
       @current_workshop ||= Workshop.find_by(id: workshop_id)
     elsif (workshop_id = cookies.signed[:workshop_id])
       workshop = Workshop.find_by(id: workshop_id)
-      if workshop && workshop.authenticated?(cookies[:remember_token])
+      if workshop && workshop.authenticated?(:remember, cookies[:remember_token])
         log_in workshop
         @current_workshop = workshop
       end

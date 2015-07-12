@@ -4,7 +4,7 @@
 <ul class="reserved">
   <% @reservation.each do |reservation| %>
     <li>
-      <%= link_to reservation.name, reservation %>
+      <%= link_to reservation.car_reg_number, reservation %>
     </li>
   <% end %>
 </ul>
