@@ -3,16 +3,33 @@
 
 <%= will_paginate %>
 
-<ul class="users">
+
+<table class="table">
+  <tr>
+    <td class="no-repeat-header">ID</td>
+    <td class="no-repeat-header">Name</td>
+    <td class="no-repeat-header">Contact Number</td>
+    <td class="no-repeat-header">Action</td>
+    <td class="no-repeat-header">Action</td>
+    <td class="no-repeat-header">Action</td>
+  </tr>
   <% @workshops.each do |workshop| %>
-    <li>
-      <%= link_to workshop.name, workshop %>
-        <% if current_workshop.admin? && !current_workshop?(workshop) %> | 
-          <%= link_to "delete", workshop, method: :delete,
-                        data: { confirm: "Comfirm to remove this workshop?" } %>
-        <% end %>
-    </li>
+  <tr>
+    <td><%= workshop.id %></td>
+    <td><%= workshop.name %></td>
+    <td><%= workshop.contact_num %></td>
+    <td>
+      <% if current_workshop.admin? && !current_workshop?(workshop) %>
+        <%= link_to "Delete", workshop, method: :delete,
+                      data: { confirm: "Comfirm to remove this workshop?" } %>
+      <% elsif %>
+        -
+      <% end %>
+    </td>
+    <td><%= link_to "View", workshop %></td>
+    <td><%= link_to "Edit", edit_workshop_path(workshop) %></td>
+  </tr>
   <% end %>
-</ul>
+</table>
 
 <%= will_paginate %>
