@@ -20,7 +20,7 @@ class Reservation < ActiveRecord::Base
 
 	# It returns the Reservation
   def self.search(query)
-    # where(:title, query) -> This would return an exact match of the query
+    # where(:id, query) -> This would return an exact match of the query
     where("id like ?", "%#{query}%")
   end
 
