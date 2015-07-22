@@ -29,14 +29,14 @@
 
     <hr>
 
-    <!--this line creates the chart
-    <%= pie_chart Reservation.group(:service_type).count,
+    <!--this line creates the chart -->
+    <%= pie_chart Reservation.unscoped.group(:service_type).count,
         {library:
           { title: "Reservation Statistics",
             hAxis: {title: "Months"},
             vAxis: {title: "Reservations"}
           }
-        } %> -->
+        } %>
 
     <br>
     <%= link_to "Back", root_path, class: "btn btn-primary" %>
