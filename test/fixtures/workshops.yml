@@ -19,3 +19,16 @@ workshop2:
   admin: false
   activated: true
   activated_at: <%= Time.zone.now %>
+
+<% 30.times do |n| %>
+workshop_<%= n %>:
+  name: <%= "Workshop #{n}" %>
+  email: <%= "example-#{n+1}@carworkshopapp.com" %>
+  address: <%= "Lot #{n+1}, Jalan Taman #{n+1}, 54000 Kuala Lumpur, WP" %>
+  contact_num: <%= "0#{38990000+(n+1)}" %>
+  com_reg_num: <%= "R#{000000000+(n+1)}" %>
+  password_digest: <%= Workshop.digest('password') %>
+  admin: false
+  activated: true
+  activated_at: <%= Time.zone.now %>
+<% end %>
