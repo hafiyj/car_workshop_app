@@ -9,10 +9,12 @@ class ActiveSupport::TestCase
   fixtures :all
   include ApplicationHelper
 
+  # Returns true if a test workshop is logged in.
   def is_logged_in?
     !session[:workshop_id].nil?
   end
 
+  # Log In a test workshop
   def log_in_as(workshop, options = {})
     password    = options[:password]    || 'password'
     remember_me = options[:remember_me] || '1'
@@ -27,8 +29,9 @@ class ActiveSupport::TestCase
 
   private
 
+    # Returns true inside an intergration test
     def integration_test?
       defined?(post_via_redirect)
     end
-    
+
 end
