@@ -5,5 +5,17 @@ workshop1:
   contact_num: 038992299
   com_reg_num: R123456789
   password_digest: <%= Workshop.digest('password') %>
+  admin: true
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+workshop2:
+  name: Testing Service Centre
+  email: testing@gmail.com
+  address: Lot 60, Jalan Ampang, 54000 Kuala Lumpur, WP
+  contact_num: 038992210
+  com_reg_num: R123456799
+  password_digest: <%= Workshop.digest('password') %>
+  admin: false
   activated: true
   activated_at: <%= Time.zone.now %>
