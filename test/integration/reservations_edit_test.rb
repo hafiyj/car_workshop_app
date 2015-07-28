@@ -8,6 +8,7 @@ class ReservationsEditTest < ActionDispatch::IntegrationTest
   end
 
   test 'unsuccessful edits' do
+    log_in_as(@workshop)
     get edit_reservation_path(@reservation)
     assert_template 'reservations/edit'
     patch reservation_path(@reservation), reservation: {name: "  ",
@@ -21,6 +22,7 @@ class ReservationsEditTest < ActionDispatch::IntegrationTest
   end
 
   test "successful edit" do
+    log_in_as(@workshop)
     get edit_reservation_path(@reservation)
     assert_template 'reservations/edit'
     name           = "Ali"
