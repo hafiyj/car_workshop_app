@@ -18,7 +18,7 @@ class ReservationsController < ApplicationController
 	end
 
 	def create
-     @reservation = current_workshop.reservations.create(reserve_params)
+     @reservation = current_workshop.reservations.build(reserve_params)
       if @reservation.save
       	@client = Twilio::REST::Client.new ENV["acc_SID"],
 				ENV["auth_token"]
@@ -62,4 +62,9 @@ class ReservationsController < ApplicationController
 																					:car_reg_number, :service_type,
                                    				:time, :date)
     end
+
+		def correct_workshop
+			@reservation = current_workshop.microposts.find_by(id: params[:id])
+			redirect_to root_url if @reservation.nil?
+		end
 end

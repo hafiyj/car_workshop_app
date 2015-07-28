@@ -1,7 +1,9 @@
 require 'test_helper'
 
-class ReservationEditTest < ActionDispatch::IntegrationTest
+class ReservationsEditTest < ActionDispatch::IntegrationTest
+
   def setup
+    @workshop = workshops(:workshop1)
     @reservation = reservations(:Ali)
   end
 

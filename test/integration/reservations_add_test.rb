@@ -1,22 +1,27 @@
 require 'test_helper'
 
 class ReservationsAddTest < ActionDispatch::IntegrationTest
+
+  def setup
+    @workshop = workshops(:workshop1)
+  end
+
   test "valid reservation information" do
-    get new_reservation_path
+    get new_reservation_path(@workshop)
     assert_difference 'Reservation.count' do
-      post_via_redirect reservations_path, reservation: { name:  "Example",
-                               contact_number:      "0123456789",
-                               car_model:           "Sample Car",
-                               car_reg_number:      "Wet69",
-                               service_type:        "Minor",
-                               time:                "03:00AM" ,
-                               date:                "2015-11-05"}
+      post_via_redirect reservations_path, reservation: {  name:  "Example",
+                                                           contact_number:      "0123456789",
+                                                           car_model:           "Sample Car",
+                                                           car_reg_number:      "Wet69",
+                                                           service_type:        "Minor",
+                                                           time:                "03:00AM" ,
+                                                           date:                "2015-11-05"}
     end
     assert_template 'reservations/show'
   end
 
   test "invalid reservation information" do
-    get new_reservation_path
+    get new_reservation_path(@workshop)
     assert_no_difference 'Reservation.count' do
       post reservations_path, reservation: { name:  " ",
                                contact_number:      " ",

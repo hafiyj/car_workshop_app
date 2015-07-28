@@ -3,8 +3,11 @@ require 'test_helper'
 class ReservationTest < ActiveSupport::TestCase
 
   def setup
-  	@reservation = Reservation.new(name: "Example cust", contact_number: "012-6654678", car_model: "Myvi", car_reg_number: "MMM 111",
+    @workshop = workshops(:workshop1)
+    @reservation = @workshop.reservations.build(name: "Example cust", contact_number: "012-6654678", car_model: "Myvi", car_reg_number: "MMM 111",
   									service_type: "Minor", time: "09.00AM", date: "12/12/2015")
+  	#@reservation = Reservation.new(name: "Example cust", contact_number: "012-6654678", car_model: "Myvi", car_reg_number: "MMM 111",
+  	#								service_type: "Minor", time: "09.00AM", date: "12/12/2015")
   end
 
   test 'should be valid' do
