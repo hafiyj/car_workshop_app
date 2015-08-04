@@ -2,7 +2,7 @@ class Reservation < ActiveRecord::Base
 	belongs_to :workshop
 	# Short the Reservation from latest to older
 	default_scope -> { order(created_at: :desc) }
-  validates :workshop_id, presence: true
+  	validates :workshop_id, presence: true
 
 	before_save :upcase_car_reg_number
 	validates :name, 						presence: true, length: { maximum: 50 }

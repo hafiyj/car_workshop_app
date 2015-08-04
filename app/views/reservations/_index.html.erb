@@ -20,6 +20,7 @@
         <td class="no-repeat-header">Date</td>
         <td class="no-repeat-header">Action</td>
         <td class="no-repeat-header">Action</td>
+        <td class="no-repeat-header">Action</td>
       </tr>
       <% @reservation.each do |reservation| %>
       <tr>
@@ -29,7 +30,9 @@
         <td><%= reservation.date %></td>
         <td><%= link_to "View", reservation %></td>
         <td><%= link_to "Edit", edit_reservation_path(reservation) %></td>
-
+        <td><% if current_workshop.admin? || current_workshop?(reservation.workshop) %>
+           <%= link_to "Delete", reservation_path(reservation.id), method: :delete, data: { confirm: "You sure?" }%>
+        <% end %><td>
       </tr>
       <% end %>
     </table>
