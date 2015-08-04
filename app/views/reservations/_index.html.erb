@@ -14,7 +14,7 @@
 <!-- <ul class="reserved"> -->
     <table class="table">
       <tr>
-        <td class="no-repeat-header">ID</td>
+        <td class="no-repeat-header">#</td>
         <td class="no-repeat-header">Reg Number</td>
         <td class="no-repeat-header">Time</td>
         <td class="no-repeat-header">Date</td>
@@ -22,16 +22,16 @@
         <td class="no-repeat-header">Action</td>
         <td class="no-repeat-header">Action</td>
       </tr>
-      <% @reservation.each do |reservation| %>
+      <% @reservation.each_with_index do |reservation, i| %>
       <tr>
-        <td><%= reservation.id %></td>
+        <td><%= i+1 %></td>
         <td><%= reservation.car_reg_number %></td>
         <td><%= reservation.time.strftime('%I:%M %P') %></td>
         <td><%= reservation.date %></td>
         <td><%= link_to "View", reservation %></td>
         <td><%= link_to "Edit", edit_reservation_path(reservation) %></td>
         <td><% if current_workshop.admin? || current_workshop?(reservation.workshop) %>
-           <%= link_to "Delete", reservation_path(reservation.id), method: :delete, data: { confirm: "You sure?" }%>
+           <%= link_to "Delete", reservation_path(reservation.id), method: :delete, data: { confirm: "You sure?"}%>
         <% end %><td>
       </tr>
       <% end %>
