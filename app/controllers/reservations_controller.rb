@@ -23,8 +23,8 @@ class ReservationsController < ApplicationController
       	@client = Twilio::REST::Client.new ENV["acc_SID"],
 				ENV["auth_token"]
 				@client.messages.create(
-  				from: '+1 415-599-2671',
-  				to: '+60182060472',
+  				from: ENV["twi_from"],
+  				to: ENV["twi_to"],
   				body: "Thank You for contacting us. \n ID: #{@reservation.id} \n Name: #{@reservation.name} \n Ph Number: #{@reservation.contact_number} \n Car Model: #{@reservation.car_model} \n Car Plate: #{@reservation.car_reg_number} \n Service Type: #{@reservation.service_type} \n Time: #{@reservation.time.strftime('%I:%M %P')} \n Date: #{@reservation.date} \n"
 					)
 				flash[:success] = "Reservation made."

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   get     'new_reserv'    => 'reservations#new'
 
+  get     'report' => 'reports#reservation_report'
   resources :workshops
   resources :reservations
   resources :account_activations, only: [:edit]
