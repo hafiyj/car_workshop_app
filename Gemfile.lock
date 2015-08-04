@@ -178,6 +178,7 @@ GEM
     formatador (0.2.5)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
+    googlecharts (1.6.10)
     guard (2.12.5)
       formatador (>= 0.2.4)
       listen (~> 2.7)
@@ -346,6 +347,7 @@ DEPENDENCIES
   figaro
   fog (= 1.31.0)
   font-awesome-sass
+  googlecharts
   guard-minitest (= 2.3.1)
   jbuilder (= 2.2.3)
   jquery-rails (= 4.0.3)
@@ -366,3 +368,6 @@ DEPENDENCIES
   unicorn
   web-console (= 2.0.0.beta3)
   will_paginate (= 3.0.7)
+
+BUNDLED WITH
+   1.10.6

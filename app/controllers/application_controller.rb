@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
 
+	require 'googlecharts'
+	
 	protect_from_forgery with: :exception
 	include SessionsHelper
 
