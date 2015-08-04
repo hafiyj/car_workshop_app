@@ -15,6 +15,7 @@
     <table class="table">
       <tr>
         <td class="no-repeat-header">#</td>
+        <td class="no-repeat-header">ID</td>
         <td class="no-repeat-header">Reg Number</td>
         <td class="no-repeat-header">Time</td>
         <td class="no-repeat-header">Date</td>
@@ -25,6 +26,7 @@
       <% @reservation.each_with_index do |reservation, i| %>
       <tr>
         <td><%= i+1 %></td>
+        <td><%= reservation.id %></td>
         <td><%= reservation.car_reg_number %></td>
         <td><%= reservation.time.strftime('%I:%M %P') %></td>
         <td><%= reservation.date %></td>

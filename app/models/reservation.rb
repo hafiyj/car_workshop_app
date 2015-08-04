@@ -21,7 +21,7 @@ class Reservation < ActiveRecord::Base
 	# It returns the Reservation
   def self.search(query)
     # where(:id, query) -> This would return an exact match of the query
-    where("car_reg_number like ?", "%#{query}%")
+    where("id like ?", "%#{query}%")
   end
 
 	def present_date
