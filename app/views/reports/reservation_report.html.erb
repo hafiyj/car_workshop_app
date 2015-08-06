@@ -5,12 +5,26 @@
     <h2>Reservation Report</h2>
 
     <br>
-    <!--this line creates the gant chart-->
-    <%= column_chart Reservation.group_by_month(:created_at) %>
 
-    <br>
+    <!--this line creates the gant chart-->
+    <%= column_chart @reservation_report,
+        {library:
+          { title: "Reservation Statistics",
+            hAxis: {title: "Months"},
+            vAxis: {title: "Reservations"}
+          }
+         } %>
+
+    <hr>
+
     <!--this line creates the chart-->
-    <%= pie_chart Reservation.group(:service_type).count %>
+    <%= pie_chart Reservation.group(:service_type).count,
+        {library:
+          { title: "Reservation Statistics",
+            hAxis: {title: "Months"},
+            vAxis: {title: "Reservations"}
+          }
+         } %>
 
     <br>
     <%= link_to "Back", root_path, class: "btn btn-primary" %>
