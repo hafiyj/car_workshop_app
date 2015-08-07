@@ -64,8 +64,7 @@ class ReservationsController < ApplicationController
   private
 
     def reserve_params
-      params.require(:reservation).permit(:name, :contact_number, :car_model,
-																					:car_reg_number, :service_type,
+      params.require(:reservation).permit(:name, :contact_number, :car_model,:car_reg_number, :service_type,
                                    				:time, :date)
     end
 
