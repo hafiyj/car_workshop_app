@@ -20,9 +20,9 @@ gem 'unicorn'
 gem 'twilio-ruby',             '4.2.1'
 gem 'figaro'
 gem 'font-awesome-sass'
-gem 'googlecharts'
-gem 'chartkick'
-gem 'dateslices'
+#gem 'googlecharts'
+#gem 'chartkick'
+#gem 'dateslices'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'
@@ -41,4 +41,7 @@ group :production do
   gem 'pg',             '0.17.1'
   gem 'rails_12factor', '0.0.2'
   gem 'puma',           '2.11.1'
+  gem 'googlecharts'
+  gem 'chartkick'
+  gem 'dateslices'
 end

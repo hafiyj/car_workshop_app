@@ -1,6 +1,10 @@
 <% provide(:title, "Reports") %>
 
-<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+<%= stylesheet_link_tag    'application', media: 'all' %>
+<%= javascript_include_tag 'application' %>
+<%= javascript_include_tag "http://www.google.com/jsapi", "chartkick" %>
+
+<%= csrf_meta_tags %>
   <div class="center jumbotron">
     <h2>Reservation Report</h2>
 
