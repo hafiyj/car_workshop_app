@@ -13,7 +13,7 @@
     <br>
       <%= @data %>
       <br>
-      <%= @data2 %>
+      <%= @groupped_data %>
       <br>
       <%= @reservation_report %>
 
@@ -29,14 +29,14 @@
 
     <hr>
 
-    <!--this line creates the chart-->
+    <!--this line creates the chart
     <%= pie_chart Reservation.group(:service_type).count,
         {library:
           { title: "Reservation Statistics",
             hAxis: {title: "Months"},
             vAxis: {title: "Reservations"}
           }
-         } %>
+        } %> -->
 
     <br>
     <%= link_to "Back", root_path, class: "btn btn-primary" %>
