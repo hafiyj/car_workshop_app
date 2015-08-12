@@ -2,7 +2,23 @@ class ReportsController < ApplicationController
 
   def reservation_report
     # Fetch Recent 12 months Reservation Data
-    @data = Reservation.where(:created_at => 12.months.ago..Time.now).group_by_month
+    #@data = Reservation.where(:created_at => 12.months.ago..Time.now).group_by_month
+
+    @rdata = Reservation.where(:created_at => 12.months.ago..Time.now)
+    @data = @rdata.group_by_month(:created_at, "count", "created_at")
+
+    # @data = case connection.adapter_name
+    #   when 'SQLite'
+    #     Dateslices::Sqlite.time_filter(column, field)
+    #   when 'PostgreSQL', 'PostGIS'
+    #     Dateslices::Postgresql.time_filter(column, field)
+    #   when 'MySQL', 'Mysql2'
+    #     Dateslices::Mysql.time_filter(column, field)
+    #   else
+    #     throw "Unknown database adaptor #{connection.adapter_name}"
+    # end
+    #@data3 = Reservation.all.group_by { |u| u.created_at.month }
+
 
     @reservation_report = Hash.new ()
     @key = Array.new

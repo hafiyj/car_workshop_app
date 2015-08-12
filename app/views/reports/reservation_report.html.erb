@@ -1,15 +1,23 @@
 <% provide(:title, "Reports") %>
 
-<%= stylesheet_link_tag    'application', media: 'all' %>
-<%= javascript_include_tag 'application' %>
-<%= javascript_include_tag "http://www.google.com/jsapi", "chartkick" %>
+<%= stylesheet_link_tag    "application", media: 'all' %>
+<%= javascript_include_tag "application" %>
+<%= javascript_include_tag "https://www.google.com/jsapi", "chartkick" %>
+<%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" %>
 
 <%= csrf_meta_tags %>
+
   <div class="center jumbotron">
     <h2>Reservation Report</h2>
 
     <br>
+      <%= @rdata %>
+      <br>
+      <%= @data2 %>
+      <br>
+      <%= @data3 %>
 
+    <br>
     <!--this line creates the gant chart-->
     <%= column_chart @reservation_report,
         {library:
