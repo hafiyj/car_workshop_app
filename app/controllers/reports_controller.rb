@@ -4,12 +4,15 @@ class ReportsController < ApplicationController
     # Fetch Recent 12 months Reservation Data
     #@data = Reservation.where(:created_at => 12.months.ago..Time.now).group_by_month
 
-    @data = Reservation.select("DISTINCT ON (reservation.id) * ")
-                       .where(created_at: 12.months.ago..Time.now)
-                       .group('date(created_at)').size
+    # @data = Reservation.select("DISTINCT ON (reservation.id) * ")
+    #                    .where(created_at: 12.months.ago..Time.now)
+    #                    .group('date(created_at)').size
     #@rdata = Reservation.where(created_at: 12.months.ago..Time.now)
     #@rdata2 = @rdata.group('date(created_at)').size
     #@data = @rdata.group_by_month
+    @data = current_workshop.reservations.select("DISTINCT ON (reservation.created_at) * ")
+                                         .where(created_at: 12.months.ago..Time.now)
+                                         .group('date(created_at)').size
 
     # @data = case connection.adapter_name
     #   when 'SQLite'
