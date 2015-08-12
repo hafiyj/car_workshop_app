@@ -4,8 +4,11 @@ class ReportsController < ApplicationController
     # Fetch Recent 12 months Reservation Data
     #@data = Reservation.where(:created_at => 12.months.ago..Time.now).group_by_month
 
-    @rdata = Reservation.where(created_at: 12.months.ago..Time.now)
-    @rdata2 = @rdata.group('date(created_at)').size
+    @data = Reservation.select("DISTINCT ON (reservation.id) * ")
+                       .where(created_at: 12.months.ago..Time.now)
+                       .group('date(created_at)').size
+    #@rdata = Reservation.where(created_at: 12.months.ago..Time.now)
+    #@rdata2 = @rdata.group('date(created_at)').size
     #@data = @rdata.group_by_month
 
     # @data = case connection.adapter_name
@@ -26,7 +29,7 @@ class ReportsController < ApplicationController
     @value = Array.new
     @formatted_date = Array.new
 
-    @rdata2.each do |k,v|
+    @data.each do |k,v|
       @key << k.to_datetime
       @value << v
     end
@@ -40,7 +43,7 @@ class ReportsController < ApplicationController
     end
 
     # Merge the date and value together back to new hash.
-    for i in 0..@rdata2.length-1 do
+    for i in 0..@data.length-1 do
       @reservation_report[@formatted_date.at(i)] = @value.at(i)
     end
 
