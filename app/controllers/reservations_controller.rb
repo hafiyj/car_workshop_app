@@ -7,7 +7,7 @@ class ReservationsController < ApplicationController
 
 	def index
 		if params[:search]
-			@reservation = current_workshop.reservations.search(params[:search])
+			@reservation = current_workshop.reservations.where(id: params[:search])
 		else
 			@reservation = current_workshop.reservations
 		end
