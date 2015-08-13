@@ -2,9 +2,10 @@ class ReportsController < ApplicationController
 
   def reservation_report
     # Fetch Recent 12 months Reservation Data
-    @data = current_workshop.reservations.where(created_at: 12.months.ago..Time.now)
+    @data = current_workshop.reservations.unscoped.
+    where(created_at: 12.months.ago..Time.now, workshop_id: current_workshop.id)
 
-    @groupped_data = @data.unscoped.group("date(created_at)").size
+    @groupped_data = @data.group("date(created_at)").size
 
     @reservation_report = Hash.new ()
     @key = Array.new
