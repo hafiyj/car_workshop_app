@@ -14,7 +14,7 @@ class ReservationsController < ApplicationController
 	end
 
 	def show
-		@reservation = current_workshop.reservations.find_by(params[:id])
+		@reservation = current_workshop.reservations.find(params[:id])
 	end
 
 	def create
@@ -35,11 +35,11 @@ class ReservationsController < ApplicationController
     end
 
 	def edit
-		@reservation = current_workshop.reservations.find_by(params[:id])
+		@reservation = current_workshop.reservations.find(params[:id])
 	end
 
 	def update
-    @reservation = current_workshop.reservations.find_by(params[:id])
+    @reservation = current_workshop.reservations.find(params[:id])
     	if @reservation.update_attributes(reserve_params)
 			@client = Twilio::REST::Client.new ENV["acc_SID"],
 			ENV["auth_token"]
