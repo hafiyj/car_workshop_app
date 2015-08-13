@@ -5,7 +5,7 @@ class ReportsController < ApplicationController
     @data = current_workshop.reservations.unscoped.
     where(created_at: 12.months.ago..Time.now, workshop_id: current_workshop.id)
 
-    @groupped_data = @data.group("date(created_at)").size
+    @groupped_data = @data.group_by_month
 
     @reservation_report = Hash.new ()
     @key = Array.new
