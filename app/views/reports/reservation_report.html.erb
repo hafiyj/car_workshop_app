@@ -1,4 +1,4 @@
-<% provide(:title, "Reports") %>
+<% provide(:title, "Reservation Statistics") %>
 
 <%= stylesheet_link_tag    "application", media: 'all' %>
 <%= javascript_include_tag "application" %>
@@ -8,18 +8,53 @@
 <%= csrf_meta_tags %>
 
   <div class="center jumbotron">
-    <h2>Reservation Report</h2>
+    <h2>Reservation Statistics</h2>
 
     <br>
 
-    <!--this line creates the gant chart-->
-    <%= column_chart @reservation_report,
-        {library:
-          { title: "Reservation Statistics",
-            hAxis: {title: "Months"},
-            vAxis: {title: "Reservations"}
-          }
-         } %>
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#reserv">Reservations</a></li>
+      <li><a data-toggle="tab" href="#type">Type</a></li>
+      <li><a data-toggle="tab" href="#time">Time</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="reserv" class="tab-pane fade in active">
+        <!--This line creates the column chart of the number of the reservation placed in the past 12 months-->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Reservation Placed</h3>
+          </div>
+          <div class="panel-body">
+            <%= column_chart @reservation_report,
+            {library:
+              { hAxis: {title: "Months"},
+                vAxis: {title: "Reservations"}
+              }
+            } %>
+          </div>
+        </div>
+      </div>
+      <div id="type" class="tab-pane fade">
+        <!--This line creates the pie chart of the type of reservation placed -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Type of Reservations</h3>
+          </div>
+          <div class="panel-body">
+            <%= pie_chart @reservation_type,
+            {library:
+              { width: 800,
+                height: 400,
+              }
+            } %>
+          </div>
+        </div>
+      </div>
+      <div id="time" class="tab-pane fade">
+        ...
+      </div>
+    </div>
 
     <br>
     <%= link_to "Back", root_path, class: "btn btn-primary" %>
