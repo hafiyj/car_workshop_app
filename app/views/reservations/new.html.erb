@@ -24,8 +24,14 @@
       <%= f.label :time %>
       <%= f.time_field :time, class: 'form-control' %>
 
-      <%= f.label :date %>
-      <%= f.date_field :date, class: 'form-control' %>
+      <div class="form-group">
+          <div class='input-group date' id='datetimepicker1' name='reservation[date]'>
+              <input type='text' class="form-control" />
+              <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+          </div>
+      </div>
 
       <%= f.submit "Confirm", class: "btn btn-primary" %>
       <br></br>
@@ -35,3 +41,9 @@
     <% end %>
   </div>
 </div>
+
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker1').datetimepicker();
+    });
+</script>
