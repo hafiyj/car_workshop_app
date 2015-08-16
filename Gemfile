@@ -23,6 +23,7 @@ gem 'font-awesome-sass'
 gem 'googlecharts'
 gem 'chartkick'
 gem 'dateslices'
+gem 'table-for'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'

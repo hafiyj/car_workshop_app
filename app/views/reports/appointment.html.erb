@@ -11,12 +11,19 @@
     <h2>Today's Appointments</h2>
     <div class="panel panel-default">
       <div class="panel-body">
+        <!-- Display Appointment Chart -->
         <%= column_chart @appointment_data,
         {library:
           { hAxis: {title: "Time"},
             vAxis: {title: "Number of Reservations"}
           }
         } %>
+
+        <hr>
+        
+        <!-- Display Appointment Table -->
+        <%= render 'reports/appointment_table' %>
+
       </div>
     </div>
 

@@ -1,33 +1,29 @@
-<div class="jumbotron workshop-header font_col">
-  <h4><%= current_workshop.name %></h4>
+<div class="jumbotron workshop-header">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- The Header name, which is workshop name -->
+      <div class="navbar-header">
+        <a class="navbar-brand"><%= current_workshop.name %></a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Place Reservation", new_reserv_path, target: "blank" %></li>
+          <li><%= link_to "Appointment", 'appointment' %></li>
+          <li><%= link_to "Statistics", 'statistic' %></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
   <hr>
 
-  <div class="row">
-      <div class="col-md-8">
-        <div class="jumbotron header-small-sec">
-          <% if @reservation.any? %>
-            <%= render 'reservations/index' %>
-          <% elsif %>
-          <h2>No reservation found.</h2>
-          <% end %>
-
-        </div>
-      </div>
-
-      <div class="col-md-4 text-center">
-        <div class="jumbotron header-small-sec">
-          <h4>Place Reservation</h4>
-          <br>
-          <%= link_to "Select", new_reserv_path, class: "btn btn-default", target: "blank" %>
-          <br><hr><br>
-          <h4>View Appointment</h4>
-          <br>
-          <%= link_to "Select", 'appointment', class: "btn btn-default" %>
-          <br><hr><br>
-          <h4>View Reservation Statistics</h4>
-          <br>
-          <%= link_to "Select", 'statistic', class: "btn btn-default" %>
-        </div>
-      </div>
+  <div class="panel panel-body header-small-sec">
+    <% if @reservation.any? %>
+      <%= render 'reservations/index' %>
+    <% elsif %>
+      <h2>No reservation found.</h2>
+    <% end %>
   </div>
 </div>
