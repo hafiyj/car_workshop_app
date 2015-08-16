@@ -1,0 +1,32 @@
+<%= table_for @reserv_data,
+  # Specifies the html classes to be applied to the table element
+  :table_html => { :class => "table table-hover table-bordered" },
+
+  # Specifies the namespace for generating links using Rails routing
+  :link_namespace => :admin,
+
+  # Specifies the classes and ids to be applied to each data row
+  :data_row_html => {
+    # The class of each row will alternate between four Twitter bootstrap classes: "success", "error", "warning", "info"
+    :class => lambda { cycle('success', 'error', 'warning', 'info')},
+    # Specifies the id using a Proc for each data row as "user-ID_OF_USER_RECORD"
+    :id => lambda { |reservation| "user-#{reservation.id}" }
+  } do |table| %>
+
+  <% table.column :id, :header => "Reservation ID" %>
+  <% table.column :name, :header => "Customer Name" %>
+  <% table.column :car_model %>
+  <% table.column :car_reg_number, :header => "Car Registration Number" %>
+  <% table.column :service_type %>
+  <% table.column :time, :formatter => [:strftime, "%I:%M %p"] %>
+  <% table.column :data => "Show", :link_url => lambda { |reservation| reservation_path(reservation.id) },
+      :header => "Action" %>
+
+  <%# Adds a footer that spans all the columns of the table and shows pagination links for the table %>
+  <% table.footer do %>
+    <div class="pull-right">
+      <%= will_paginate @reserv_data %>
+    </div>
+  <% end %>
+
+<% end %>
