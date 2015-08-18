@@ -3,7 +3,7 @@
 
 <%= form_tag(reservations_path, :method => "get", class: "navbar-form") do %>
   <div class="input-append center">
-    <%= text_field_tag :search, params[:search], class: "span2", placeholder: "Search Reservation, Enter Car Registration Number" %>
+    <%= text_field_tag :search, params[:search.upcase], class: "span2", placeholder: "Search Reservation, Enter Car Registration Number" %>
     <!-- In order to have the "search" icon int the button, we need to use plain HTML instead
       of using a Rails form helper -->
   <button class="btn btn-primary" type="submit"><b class="icon-search">Search</b></button>

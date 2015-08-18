@@ -1,7 +1,9 @@
 class LandingPagesController < ApplicationController
   def home
     if logged_in?
-      @reservation = current_workshop.reservations
+      @r_data = current_workshop.reservations.unscoped.
+                where(workshop_id: current_workshop.id, date: Date.today).order(:time)
+      @reservation = @r_data.paginate(:per_page => 10, :page => params[:page])
     end
   end
 

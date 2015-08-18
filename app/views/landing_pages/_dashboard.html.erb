@@ -21,10 +21,13 @@
   <hr>
 
   <div class="panel panel-body header-small-sec">
-    <% if @reservation.any? %>
-      <%= render 'reservations/index' %>
+    <% if @reservation.count != 0 %>
+      <h2>Today's Reservation</h2>
+      <div class="panel panel-body">
+        <%= render 'landing_pages/appointment_table' %>
+      </div>
     <% elsif %>
-      <h2>No reservation found.</h2>
+      <h2>No reservation found, feel free to <%= link_to "place one", new_reserv_path, target: "blank" %>.</h2>
     <% end %>
   </div>
 </div>

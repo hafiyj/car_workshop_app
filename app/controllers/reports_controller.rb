@@ -1,5 +1,6 @@
 class ReportsController < ApplicationController
-
+  before_action :logged_in_workshop, only: [:statistic, :appointment]
+  
   def statistic
     # Fetch Recent 12 months Reservation Data
     @r_data = current_workshop.reservations.unscoped.
@@ -76,7 +77,7 @@ class ReportsController < ApplicationController
 
     #Fetch the data out from database and use in the Table For
     @r_data = current_workshop.reservations.unscoped.
-              where(workshop_id: current_workshop.id, date: Date.today)
+              where(workshop_id: current_workshop.id, date: Date.today).order(:time)
     @reserv_data = @r_data.paginate(:per_page => 10, :page => params[:page])
   end
 end
