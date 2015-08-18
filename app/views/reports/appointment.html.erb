@@ -12,21 +12,12 @@
     <div class="panel panel-default">
       <div class="panel-body">
         <!-- Display Appointment Chart -->
-        <%= column_chart @appointment_data,
-        {library:
-          { hAxis: {title: "Time"},
-            vAxis: {title: "Number of Reservations"}
-          }
-        } %>
-
+        <%= render 'reports/appointment_chart' %>
         <hr>
-        
         <!-- Display Appointment Table -->
         <%= render 'reports/appointment_table' %>
-
       </div>
     </div>
-
     <br>
     <%= link_to "Back", root_path, class: "btn btn-primary" %>
   </div>

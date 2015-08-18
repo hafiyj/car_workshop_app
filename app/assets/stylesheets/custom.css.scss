@@ -28,6 +28,15 @@ text-align: center;
   }
 }
 
+.tab-content > .tab-pane {
+    display: block;     /* undo display:none          */
+    height: 0;          /* height:0 is also invisible */
+    overflow-y: hidden; /* no-overflow                */
+}
+.tab-content > .active {
+    height: auto;       /* let the content decide it  */
+}
+
 .btn-default {
   background-color: white;
   color: black;

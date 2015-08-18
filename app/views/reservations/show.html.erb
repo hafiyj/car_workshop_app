@@ -2,33 +2,48 @@
 
 <div class="jumbotron">
 	<section class="user_info">
-			<h1>Reservation Details:</h1>
-				<h2>
-					<b>ID:</b>
-						<%= @reservation.id %>
-					<br></br>
-					<b>Name:</b>
-						<%= @reservation.name %>
-					<br><br>
-					<b>Contact Number:</b>
-						<%= @reservation.contact_number %>
-					<br><br>
-					<b>Car Model:</b>
-						<%= @reservation.car_model %>
-					<br><br>
-					<b>Car registration number:</b>
-						<%= @reservation.car_reg_number %>
-          <br><br>
-  				<b>Service type:</b>
-  					<%= @reservation.service_type %>
-  				<br><br>
-  				<b>Time:</b>
-  					<%= @reservation.time.strftime('%I:%M %P') %>
-          <br><br>
-          <b>Date:</b>
-            <%= @reservation.date %>
-				<h2>
 
-				<%= link_to "Edit Reservation", edit_reservation_path, class: "btn btn-lg btn-primary" %>
+		<div class="panel panel-default">
+			<!-- Default panel contents -->
+			<div class="panel-heading"><h4>Reservation Details:</h4></div>
+				<div class="panel-body center">
+					<p>Your reservation details is shown as below, feel free to edit.</p>
+				</div>
+
+				<table class="table">
+					<tr>
+		        <td class="no-repeat-header"><b>ID</b></td>
+		        <td class="no-repeat-header"><b>Name</b></td>
+		        <td class="no-repeat-header"><b>Contact Number</b></td>
+		        <td class="no-repeat-header"><b>Car Model</b></td>
+		        <td class="no-repeat-header"><b>Car registration number</b></td>
+						<td class="no-repeat-header"><b><b>Service type:</b></b></td>
+						<td class="no-repeat-header"><b><b>Time:</b></b></td>
+						<td class="no-repeat-header"><b><b>Date:</b></b></td>
+					</tr>
+					<tr>
+						<td><%= @reservation.id %></td>
+						<td><%= @reservation.name %></td>
+						<td><%= @reservation.contact_number %></td>
+						<td><%= @reservation.car_model %></td>
+						<td><%= @reservation.car_reg_number %></td>
+						<td><%= @reservation.service_type %></td>
+						<td><%= @reservation.time.strftime('%I:%M %P') %></td>
+						<td><%= @reservation.date %></td>
+					</tr>
+
+				</table>
+				<hr>
+				<br>
+				<div class="center">
+					<%= link_to "< Back", reservations_path, class: "panel-heading" %>
+					<%= link_to "Edit Reservation", edit_reservation_path, class: "panel-heading" %>
+					<% if current_workshop.admin? || current_workshop?(reservation.workshop) %>
+	           <%= link_to "Delete", reservation_path(@reservation.id), class: "panel-heading",
+						 			method: :delete, data: { confirm: "You sure?"}%>
+	        <% end %>
+				</div>
+				<br>
+			</div>
 	</section>
 </div>

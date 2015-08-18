@@ -19,52 +19,42 @@
     <div class="tab-content">
       <div id="reserv" class="tab-pane fade in active">
         <!--This line creates the column chart of the number of the reservation placed in the past 12 months-->
-        <div class="panel panel-default">
-        <div class="panel-heading">
+        <div class="panel panel-body">
             <h3 class="panel-title">Reservation Placed</h3>
-          </div>
-          <div class="panel-body">
-            <%= column_chart @reservation_report,
+            <%= column_chart @reservation_data,
             {library:
               { hAxis: {title: "Months"},
                 vAxis: {title: "Reservations"}
               }
             } %>
-          </div>
         </div>
       </div>
+
       <div id="type" class="tab-pane fade">
         <!--This line creates the pie chart of the type of reservation placed -->
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Type of Reservations</h3>
-          </div>
-          <div class="panel-body">
-            <%= pie_chart @reservation_type,
-            {library:
-              { height: 400,
-                width: 800}
-            } %>
-          </div>
+        <div class="panel panel-body">
+          <h3 class="panel-title">Type of Reservations</h3>
+          <%= pie_chart @type_data,
+          {library:
+            { height: 400,
+              width: 800}
+          } %>
         </div>
       </div>
+
       <div id="time" class="tab-pane fade">
         <!--This line creates the area chart of the time of reservation placed -->
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Time of Reservations Placed</h3>
-          </div>
-          <div class="panel-body">
-            <%= area_chart @reservation_time,
+        <div class="panel panel-body">
+          <h3 class="panel-title">Time of Reservations Placed</h3>
+            <%= column_chart @time_data,
             {library:
-              { hAxis: {title: "Number of Reservations"},
-                vAxis: {title: "Time"},
+              { hAxis: {title: "Time"},
+                vAxis: {title: "Number of Reservations"},
                 height: 400,
                 width: 800
               }
             } %>
           </div>
-        </div>
       </div>
     </div>
 
