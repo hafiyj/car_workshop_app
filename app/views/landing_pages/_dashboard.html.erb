@@ -9,7 +9,7 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "Place Reservation", new_reserv_path, target: "blank" %></li>
+          <li><%= link_to "Place Reservation", new_reserv_path %></li>
           <li><%= link_to "Appointment", 'appointment' %></li>
           <li><%= link_to "All Reservations", reservations_path %></li>
           <li><%= link_to "Statistics", 'statistic' %></li>
@@ -27,7 +27,19 @@
         <%= render 'landing_pages/appointment_table' %>
       </div>
     <% elsif %>
-      <h2>No reservation found, feel free to <%= link_to "place one", new_reserv_path, target: "blank" %>.</h2>
+      <h2>No reservation found, feel free to <%= link_to "place one", new_reserv_path %>.</h2>
     <% end %>
   </div>
+
+  <!-- Pop Out Box-->
+  <div id="popup-box" class="overlay">
+    <div class="popup">
+      <h2>New Reservation</h2>
+      <a class="close" href="#">×</a>
+      <div class="content">
+
+      </div>
+    </div>
+  </div>
+
 </div>

@@ -68,8 +68,8 @@ class ReservationsController < ApplicationController
                                    				:time, :date)
     end
 
-	def correct_workshop
-		@reservation = current_workshop.microposts.find_by(id: params[:id])
-		redirect_to root_url if @reservation.nil?
-	end
+		def correct_workshop
+			@reservation = current_workshop.microposts.find_by(id: params[:id])
+			redirect_to root_url if @reservation.nil?
+		end
 end
