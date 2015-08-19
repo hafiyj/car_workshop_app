@@ -9,7 +9,7 @@ class ReservationsController < ApplicationController
 		if params[:search]
 			@reservation = current_workshop.reservations.where(car_reg_number: params[:search])
 		else
-			@reservation = current_workshop.reservations
+			@reservations = current_workshop.reservations.paginate(page: params[:page])
 		end
 	end
 

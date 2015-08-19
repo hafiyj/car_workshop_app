@@ -12,6 +12,7 @@
 
 <br>
 
+<%= will_paginate %>
 <!-- <ul class="reserved"> -->
     <table class="table">
       <tr>
@@ -24,7 +25,7 @@
         <td class="no-repeat-header"> </td>
         <td class="no-repeat-header"> </td>
       </tr>
-      <% @reservation.each_with_index do |reservation, i| %>
+      <% @reservations.each_with_index do |reservation, i| %>
       <tr>
         <td><%= i+1 %></td>
         <td><%= "R"+"%05d" % reservation.id %></td>
@@ -39,3 +40,5 @@
       </tr>
       <% end %>
     </table>
+
+<%= will_paginate %>
