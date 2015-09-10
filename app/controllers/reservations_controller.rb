@@ -9,7 +9,7 @@ class ReservationsController < ApplicationController
 		if params[:search]
 			@reservation = current_workshop.reservations.where(car_reg_number: params[:search])
 		else
-			@reservation = current_workshop.reservations
+			@reservations = current_workshop.reservations.paginate(page: params[:page])
 		end
 	end
 
@@ -68,8 +68,8 @@ class ReservationsController < ApplicationController
                                    				:time, :date)
     end
 
-	def correct_workshop
-		@reservation = current_workshop.microposts.find_by(id: params[:id])
-		redirect_to root_url if @reservation.nil?
-	end
+		def correct_workshop
+			@reservation = current_workshop.microposts.find_by(id: params[:id])
+			redirect_to root_url if @reservation.nil?
+		end
 end

@@ -1,4 +1,5 @@
 class ReportsController < ApplicationController
+  before_action :logged_in_workshop, only: [:statistic, :appointment]
 
   def statistic
     # Fetch Recent 12 months Reservation Data
@@ -11,7 +12,7 @@ class ReportsController < ApplicationController
     @value = Array.new
     # Split the data and put into hash, and format the date of the fetched data
     @r_data.each do |k,v|
-      @key << k.to_datetime.strftime("%B, %Y")
+      @key << k.to_datetime.strftime("%B, %Y").to_s
       @value << v
     end
     # Merge the date and value together back to new hash.
@@ -76,7 +77,7 @@ class ReportsController < ApplicationController
 
     #Fetch the data out from database and use in the Table For
     @r_data = current_workshop.reservations.unscoped.
-              where(workshop_id: current_workshop.id, date: Date.today)
+              where(workshop_id: current_workshop.id, date: Date.today).order(:time)
     @reserv_data = @r_data.paginate(:per_page => 10, :page => params[:page])
   end
 end

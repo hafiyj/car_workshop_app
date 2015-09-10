@@ -1,4 +1,4 @@
-<%= table_for @reserv_data,
+<%= table_for @reservation,
   # Specifies the html classes to be applied to the table element
   :table_html => { :class => "table table-hover table-bordered" },
 
@@ -25,7 +25,7 @@
   <%# Adds a footer that spans all the columns of the table and shows pagination links for the table %>
   <% table.footer do %>
     <div class="pull-right">
-      <%= will_paginate @reserv_data %>
+      <%= will_paginate @reservation %>
     </div>
   <% end %>
 

@@ -96,8 +96,35 @@ line-height: 1.7em;
 }
 /* Landing Page Section Heading */
 
+.my-inner {
+    padding: 5px;
+  }
+
 .section-sizing{
-  height: 600px;
+  height: 300px;
+}
+
+.text-justified{
+  font-size: 10;
+  text-align: justify;
+}
+
+nav {
+    font-family: Arial;
+    background-color: black;
+}
+
+nav ul a{
+  color: white;
+}
+
+nav ul li:hover {
+  background-color: white;
+  color: black;
+}
+
+nav ul li:hover a{
+     color: black;
 }
 
 section h2.section-heading {
@@ -120,37 +147,32 @@ section h3.section-subheading {
 /* Landing Page Section Propoerties */
 
 .service-prop {
-  background-color: transparentize(black, 0.8);
-  line-height: 2;
+  background-color: transparentize(black, 0.4);
+  color: white;
+  line-height: 1.5;
 }
 
 .user-friendly-prop {
-  background-color: transparentize(blue, 0.5);
+  background-color: transparentize(black, 0.4);
   color: white;
-  line-height: 2;
+  line-height: 1.5;
 }
 
 .computerized-prop {
-  background-color: transparentize(orange, 0.5);
+  background-color: transparentize(black, 0.4);
   color: white;
-  line-height: 2;
+  line-height: 1.5;
 }
 
 .notification-prop {
-  background-color: transparentize(green, 0.5);
+  background-color: transparentize(black, 0.4);
   color: white;
-  line-height: 2;
-}
-
-.signup-prop {
-  background-color: transparentize(red, 0.5);
-  color: white;
-  line-height: 2;
+  line-height: 1.5;
 }
 
 .subscribe-prop {
-  background-color: transparentize(yellow, 0.5);
-  line-height: 2;
+  background-color: transparentize(yellow, 0.3);
+  line-height: 1.5;
 }
 
 #logo {
@@ -295,4 +317,54 @@ input {
   padding-right: 12px !important;
   background-repeat: no-repeat !important;
   background-position: right center !important;
+}
+
+/* Reservation Pop Up box */
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 55%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: orange;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
 }
