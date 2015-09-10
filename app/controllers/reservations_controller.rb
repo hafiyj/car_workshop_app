@@ -25,7 +25,7 @@ class ReservationsController < ApplicationController
 				@client.messages.create(
   				from: ENV["twi_from"],
   				to: ENV["twi_to"],
-  				body: "Thank You for contacting us. \n ID: #{@reservation.id} \n Name: #{@reservation.name} \n Ph Number: #{@reservation.contact_number} \n Car Model: #{@reservation.car_model} \n Car Plate: #{@reservation.car_reg_number} \n Service Type: #{@reservation.service_type} \n Time: #{@reservation.time.strftime('%I:%M %P')} \n Date: #{@reservation.date} \n"
+  				body: "Thank You for choosing us for your car maintainence. \n Here is the details for your reservation: \n ID: #{@reservation.id} \n Name: #{@reservation.name} \n Ph Number: #{@reservation.contact_number} \n Car Model: #{@reservation.car_model} \n Car Plate: #{@reservation.car_reg_number} \n Service Type: #{@reservation.service_type} \n Time: #{@reservation.time.strftime('%I:%M %P')} \n Date: #{@reservation.date} \n Enjoy more mileage with the new primax95 from Petronas. \n Have a good day!"
 					)
 				flash[:success] = "Reservation made."
 				redirect_to @reservation
@@ -46,7 +46,7 @@ class ReservationsController < ApplicationController
 			@client.messages.create(
 				from: ENV["twi_from"],
 				to: ENV["twi_to"],
-				body: "Thank You for contacting us. \n ID: #{@reservation.id} \n Name: #{@reservation.name} \n Ph Number: #{@reservation.contact_number} \n Car Model: #{@reservation.car_model} \n Car Plate: #{@reservation.car_reg_number} \n Service Type: #{@reservation.service_type} \n Time: #{@reservation.time.strftime('%I:%M %P')} \n Date: #{@reservation.date} \n"
+				body: "Thank You for choosing us for your car maintainence.\n Here is the details for your reservation: \n ID: #{@reservation.id} \n Name: #{@reservation.name} \n Ph Number: #{@reservation.contact_number} \n Car Model: #{@reservation.car_model} \n Car Plate: #{@reservation.car_reg_number} \n Service Type: #{@reservation.service_type} \n Time: #{@reservation.time.strftime('%I:%M %P')} \n Date: #{@reservation.date} \n Enjoy more mileage with the new primax95 from Petronas. \n Have a good day!"
 				)
       		flash[:success] = "Reservation updated"
 			redirect_to @reservation
